@@ -34,6 +34,12 @@ public class HelloWorldResource {
         return new Saying(counter.incrementAndGet(), template.render(name));
     }
 
+    @GET
+    @Path("me")
+    public String sayMe() {
+        return "me";
+    }
+
     @POST
     public void receiveHello(@Valid Saying saying) {
         LOGGER.info("Received a saying: {}", saying);
